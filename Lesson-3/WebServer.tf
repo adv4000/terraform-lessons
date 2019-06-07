@@ -1,10 +1,10 @@
-#----------------------------------------------------
+#----------------------------------------------------------
 # My Terraform
 #
-# Build WebServer during Bootrsap protected_settings
+# Build WebServer during Bootstrap
 #
 # Made by Denis Astahov
-#-----------------------------------------------------
+#----------------------------------------------------------
 
 
 provider "aws" {
@@ -19,7 +19,8 @@ resource "aws_instance" "my_webserver" {
   user_data              = file("user_data.sh")
 
   tags = {
-    Name = "Web Server build by Terraform"
+    Name  = "Web Server Build by Terraform"
+    Owner = "Denis Astahov"
   }
 }
 
@@ -29,7 +30,6 @@ resource "aws_security_group" "my_webserver" {
   description = "My First SecurityGroup"
 
   ingress {
-    description = "Allow HTTP access from any address in Internet"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -37,7 +37,6 @@ resource "aws_security_group" "my_webserver" {
   }
 
   ingress {
-    description = "Allow HTTPS access from any address in Internet"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
@@ -52,6 +51,7 @@ resource "aws_security_group" "my_webserver" {
   }
 
   tags = {
-    Name = "WebServer Security Group"
+    Name  = "Web Server SecurityGroup"
+    Owner = "Denis Astahov"
   }
 }
