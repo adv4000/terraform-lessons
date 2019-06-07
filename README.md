@@ -19,6 +19,8 @@ export AWS_DEFAULT_REGION="zzzzzzzzz"
 terraform init
 terraform plan
 terraform apply
-terraform show
 terraform destroy
+
+terraform show
+terraform console
 ```
