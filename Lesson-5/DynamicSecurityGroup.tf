@@ -16,7 +16,7 @@ resource "aws_security_group" "my_webserver" {
   name = "Dynamic Security Group"
 
   dynamic "ingress" {
-    for_each = ["80", "443", "8080", "4438", "777", "9092", "9093"]
+    for_each = ["80", "443", "8080", "1541", "9092", "9093"]
     content {
       from_port   = ingress.value
       to_port     = ingress.value
@@ -25,12 +25,14 @@ resource "aws_security_group" "my_webserver" {
     }
   }
 
+
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["10.10.0.0/16"]
   }
+
 
 
   egress {
@@ -41,7 +43,7 @@ resource "aws_security_group" "my_webserver" {
   }
 
   tags = {
-    Name  = "Web Server SecurityGroup"
+    Name  = "Dynamic SecurityGroup"
     Owner = "Denis Astahov"
   }
 }
