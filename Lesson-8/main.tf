@@ -1,55 +1,41 @@
 #----------------------------------------------------------
 # My Terraform
 #
-# Dependency depend_on
-#
 # Made by Denis Astahov
 #----------------------------------------------------------
 
 provider "aws" {
-  region = "ca-central-1"
+  region = "eu-central-1"
 }
 
-
-resource "aws_instance" "server-1" {
-  ami                    = "ami-07ab3281411d31d04"
+resource "aws_instance" "my_server_app" {
+  ami                    = "ami-03a71cec707bfc3d7"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.my_webserver.id]
 
   tags = {
-    Name = "Server-1"
+    Name = "Server-Application"
   }
 
-  depends_on = [aws_instance.server-2, aws_instance.server-3]
+  depends_on = [aws_instance.my_server_db]
 }
 
-resource "aws_instance" "server-2" {
-  ami                    = "ami-07ab3281411d31d04"
+
+resource "aws_instance" "my_server_db" {
+  ami                    = "ami-03a71cec707bfc3d7"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.my_webserver.id]
 
   tags = {
-    Name = "Server-2"
+    Name = "Server-Database"
   }
-}
-
-
-resource "aws_instance" "server-3" {
-  ami                    = "ami-07ab3281411d31d04"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.my_webserver.id]
-
-  tags = {
-    Name = "Server-3"
-  }
+  depends_on = [aws_instance.my_server_app]
 }
 
 
 
 resource "aws_security_group" "my_webserver" {
-  name        = "WebServer Security Group"
-  description = "My First SecurityGroup"
-
+  name = "My Security Group"
 
   dynamic "ingress" {
     for_each = ["80", "443", "22"]
@@ -69,7 +55,6 @@ resource "aws_security_group" "my_webserver" {
   }
 
   tags = {
-    Name  = "Server SecurityGroup"
-    Owner = "Denis Astahov"
+    Name = "My SecurityGroup"
   }
 }
