@@ -22,5 +22,6 @@ terraform apply
 terraform destroy
 
 terraform show
+terraform output
 terraform console
 ```
