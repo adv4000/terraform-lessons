@@ -1,4 +1,4 @@
-# Auto Fill variables for DEV
+# Auto Fill variables for PROD
 
 #File names can be  as:
 # terraform.tfvars

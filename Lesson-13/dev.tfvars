@@ -1,6 +1,6 @@
-# Auto Fill parameters for DEV
+# Auto Fill variables for DEV
 
-#File  can be names as:
+#File names can be  as:
 # terraform.tfvars
 # prod.auto.tfvars
 # dev.auto.tfvars
