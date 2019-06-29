@@ -1,0 +1,13 @@
+// Fake Credentials file, but should look like this
+{
+  "type": "service_account",
+  "project_id": "my-gcp-project-xyzxyz",
+  "private_key_id": "d6fasdasfasfasf935f7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nA0xFAafq5visBkpMBDscO5YIQ+w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tf-22-677@my-gcp-project-xyzxyz.iam.gserviceaccount.com",
+  "client_id": "34623523523523523",
+  "auth_uri": "https://accounts.astahov.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.astahov.com/token",
+  "auth_provider_x509_cert_url": "https://www.astahov.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.astahov.com/robot/v1/metadata/x509/tf-22-677%40my-gcp-project-xyzxyz.iam.gserviceaccount.com"
+}
