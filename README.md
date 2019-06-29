@@ -1,4 +1,4 @@
-<img src="terraform.png"><br>
+<img src="terraform.jpg"><br>
 
 # Terraform 0.12+ Lessons by Denis Astahov
 
