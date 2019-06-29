@@ -1,4 +1,4 @@
-# Terraform Lessons by Denis Astahov
+# Terraform 0.12+ Lessons by Denis Astahov
 
 ### Set AWS Credentials in Windows PowerShell:
 ```
