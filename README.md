@@ -26,4 +26,5 @@ terraform destroy
 terraform show
 terraform output
 terraform console
+terraform import
 ```
