@@ -1,14 +1,3 @@
-data "aws_availability_zones" "available" {}
-data "aws_ami" "latest_amazon_linux" {
-  owners      = ["amazon"]
-  most_recent = true
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-}
-
-
 resource "aws_instance" "web-stag" {
   ami                    = data.aws_ami.latest_amazon_linux.id
   instance_type          = "t3.micro"
@@ -24,32 +13,31 @@ chkconfig httpd on
 EOF
 
   tags = {
-    Name = "STAG WebServer"
+    Name  = "STAG WebServer"
     Owner = "Denis Astahov"
   }
 }
 
-
 resource "aws_security_group" "web-stag" {
-  name = "WebServer SG Stag"
+  name        = "WebServer SG Stag"
   description = "My First SecurityGroup"
 
   ingress {
-    from_port = 80
-    to_port = 80
-    protocol = "tcp"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
-    Name = "Web Server SecurityGroup"
+    Name  = "Web Server SecurityGroup"
     Owner = "Denis Astahov"
   }
 }
