@@ -1,6 +1,6 @@
 <img src="terraform.jpg"><br>
 
-# Terraform 0.12 and 0.13+ Lessons by Denis Astahov
+# Terraform 0.12+ and 0.13+ Lessons by Denis Astahov
 
 ### Set AWS Credentials in Windows PowerShell:
 ```
@@ -27,4 +27,16 @@ terraform show
 terraform output
 terraform console
 terraform import
+terraform taint
 ```
+
+### Terraform State Commands
+```
+terraform state show
+terraform state list
+terraform state pull
+terraform state rm
+terraform state mv
+terraform state push
+```
+`for x in $(terraform state list | grep aws_eip); do terraform state mv -state-out=”terraform.tfstate”  $x $x; done`
