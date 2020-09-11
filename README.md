@@ -40,3 +40,15 @@ terraform state mv
 terraform state push
 ```
 `for x in $(terraform state list | grep aws_eip); do terraform state mv -state-out=”terraform.tfstate”  $x $x; done`
+
+
+
+### Terraform Workspace Commands
+```
+terraform workspace show
+terraform workspace list
+terraform workspace new
+terraform workspace select
+terraform workspace delete
+```
+`${terraform.workspace}`
