@@ -39,7 +39,7 @@ terraform state rm
 terraform state mv
 terraform state push
 ```
-`for x in $(terraform state list | grep aws_eip); do terraform state mv -state-out=”terraform.tfstate”  $x $x; done`
+`for x in $(terraform state list | grep xyz); do terraform state mv -state-out=”terraform.tfstate”  $x $x; done`
 
 
 
