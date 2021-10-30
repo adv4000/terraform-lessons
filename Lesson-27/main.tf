@@ -1,3 +1,4 @@
+# Up to Terraform v0.15.1
 # terraform taint aws_instance.node2
 #
 provider "aws" {
