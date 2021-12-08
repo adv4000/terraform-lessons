@@ -22,7 +22,7 @@ provider "aws" { // My PROD Account
 #--------------------------------------------------------------
 
 module "servers" {
-  source        = "/home/denis/terraform-rus/Lesson-32/module_servers"
+  source        = "./module_servers"
   instance_type = "t3.small"
   providers = {
     aws.root = aws
