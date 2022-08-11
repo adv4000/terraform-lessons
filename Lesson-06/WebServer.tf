@@ -30,6 +30,7 @@ resource "aws_instance" "my_webserver" {
     l_name = "Astahov",
     names  = ["Vasya", "Kolya", "Petya", "John", "Donald", "Masha", "Lena", "Katya"]
   })
+  user_data_replace_on_change = true # Added in the new AWS provider!!!
 
   tags = {
     Name  = "Web Server Build by Terraform"
