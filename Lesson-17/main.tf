@@ -10,6 +10,8 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+resource "aws_default_vpc" "default" {} # This need to be added since AWS Provider v4.29+ to get VPC id
+
 // Use of Condition
 resource "aws_instance" "my_webserver1" {
   ami = "ami-03a71cec707bfc3d7"
@@ -48,7 +50,8 @@ resource "aws_instance" "my_dev_bastion" {
 
 
 resource "aws_security_group" "my_webserver" {
-  name = "Dynamic Security Group"
+  name   = "Dynamic Security Group"
+  vpc_id = aws_default_vpc.default.id # This need to be added since AWS Provider v4.29+ to set VPC id
 
   dynamic "ingress" {
     for_each = lookup(var.allow_port_list, var.env)
