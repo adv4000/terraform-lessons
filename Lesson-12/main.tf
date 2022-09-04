@@ -25,6 +25,7 @@ data "aws_ami" "latest_amazon_linux" {
 
 
 resource "aws_eip" "my_static_ip" {
+  vpc      = true # Need to add in new AWS Provider version
   instance = aws_instance.my_server.id
   //tags     = var.common_tags
   tags = merge(var.common_tags, { Name = "${var.common_tags["Environment"]} Server IP" })
