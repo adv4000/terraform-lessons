@@ -53,6 +53,7 @@ resource "aws_security_group" "web" {
 }
 
 resource "aws_eip" "web" {
+  vpc      = true # Need to add in new AWS Provider version
   instance = aws_instance.web.id
   tags = {
     Name  = "PROD WebServer IP - ${terraform.workspace}"
