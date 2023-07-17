@@ -15,7 +15,7 @@ resource "aws_default_vpc" "default" {} # This need to be added since AWS Provid
 
 resource "aws_eip" "my_static_ip" {
   instance = aws_instance.my_webserver.id
-  vpc      = true # Need to add in new AWS Provider version
+  domain   = "vpc" # Need to add in new AWS Provider version
   tags = {
     Name  = "Web Server IP"
     Owner = "Denis Astahov"
