@@ -61,7 +61,7 @@ output "data_aws_caller_identity" {
 }
 
 output "data_aws_region_name" {
-  value = data.aws_region.current.name
+  value = data.aws_region.current.region
 }
 
 output "data_aws_region_description" {
